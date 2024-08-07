@@ -3,6 +3,8 @@ const app=express();
 const db=require('./db');
 const Person=require('./models/person');
 const bodyParser=require('body-parser');
+const PORT =process.env.PORT || 3000;
+require('dotenv').config();
 app.use(bodyParser.json());  //req.body
 app.get('/',(req,res)=>{
     res.send('WELCOME BOSS!');
@@ -29,6 +31,6 @@ app.use('/person',personRouters);
 res.send('data is post successfully');
 })
 */   //this is old method for callback after main function execution
-app.listen(3000,() => {
+app.listen(PORT,() => {
     console.log('Server is running on port 3000');
 });

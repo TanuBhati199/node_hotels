@@ -15,8 +15,10 @@ db.on('disconnected',()=>{
 });
 module.exports=db;*/  
 const mongoose = require('mongoose');
-const mongoURL = 'mongodb://127.0.0.1:27017/hotels';
-
+require('dotenv').config();
+const mongoURL=process.env.DBurl;
+//const mongoURL = 'mongodb://127.0.0.1:27017/hotels';
+//const mongoURL='mongodb+srv://tanu2021it:tanu2003@cluster0.htwxvsc.mongodb.net/'
 mongoose.connect(mongoURL)
     .then(() => console.log('MongoDB connected!'))
     .catch(err => console.error('MongoDB connection error', err));
